@@ -34,16 +34,6 @@ import io.dropwizard.core.setup.Environment;
 public class App extends Application<Configuration> {
 
     public static void main(String[] args) throws Exception {
-        // 1. Set breakpoint on line 112 of ErrorPageErrorHandler:
-        // errorStatusCode = (Integer)request.getAttribute(org.eclipse.jetty.server.handler.ErrorHandler.ERROR_STATUS);
-        // 2. Debug this main method using Java 17 + the command line args 'server app-config-dev.json'
-        // 3. Navigate to http://localhost:3200/bla, breakpoint should be hit
-        //
-        // The return value from the above line of code is null in Jetty 12, because no error attributes are set,
-        // whereas in Jetty 11 multiple error attributes are set.
-        //
-        // The error attributes are used to map to the error page, but in Jetty 12 this does not happen and a
-        // generic page is shown instead of my custom error page.
         new App().run(args);
     }
 
